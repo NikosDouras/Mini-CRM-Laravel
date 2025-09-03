@@ -2,13 +2,9 @@
     <x-slot name="header"><h2 class="font-semibold text-xl">Companies</h2></x-slot>
 
     <div class="p-6">
-        @if (session('status'))
-            <div class="mb-4 text-green-700">{{ session('status') }}</div>
-        @endif
-
         <a href="{{ route('companies.create') }}" class="underline">New Company</a>
 
-        <table class="table-auto w-full mt-4">
+        <table id="companies-table" class="display w-full mt-4">
             <thead>
                 <tr>
                     <th class="p-2 text-left">Name</th>
@@ -20,12 +16,12 @@
             </thead>
             <tbody>
                 @forelse($companies as $c)
-                    <tr class="border-t">
+                    <tr>
                         <td class="p-2">{{ $c->name }}</td>
                         <td class="p-2">{{ $c->email }}</td>
                         <td class="p-2">
                             @if($c->website)
-                                <a href="{{ $c->website }}" target="_blank" class="underline">{{ $c->website }}</a>
+                                <a href="{{ $c->website }}" target="_blank" rel="noopener" class="underline">{{ $c->website }}</a>
                             @endif
                         </td>
                         <td class="p-2">
@@ -47,6 +43,5 @@
             </tbody>
         </table>
 
-        <div class="mt-4">{{ $companies->links() }}</div>
     </div>
 </x-app-layout>

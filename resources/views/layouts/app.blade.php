@@ -11,6 +11,9 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        <!-- DataTables CSS -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -41,5 +44,37 @@
                 {{ $slot }}
             </main>
         </div>
+
+        <!-- jQuery + DataTables JS -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+        <script>
+            $(function () {
+                if ($('#companies-table').length) {
+                $('#companies-table').DataTable({
+                    dom: 'frtip',            // hide length menu (no "l")
+                    pageLength: 10,
+                    order: [[0, 'asc']],     // sort by Name
+                    columnDefs: [
+                    { targets: [3, 4], orderable: false, searchable: false } // Logo, Actions
+                    ]
+                });
+                }
+
+                if ($('#employees-table').length) {
+                $('#employees-table').DataTable({
+                    dom: 'frtip',            // hide length menu
+                    pageLength: 10,
+                    order: [[1, 'asc']],     // sort by Last Name
+                    columnDefs: [
+                    { targets: [5], orderable: false, searchable: false }    // Actions
+                    ]
+                });
+                }
+            });
+            </script>
+
+
     </body>
 </html>

@@ -8,11 +8,14 @@ use App\Http\Requests\StoreCompanyRequest;
 use App\Http\Requests\UpdateCompanyRequest;
 use Illuminate\Support\Facades\Storage;
 
+use App\Mail\CompanyCreatedMail;
+use Illuminate\Support\Facades\Mail;
+
 class CompanyController extends Controller
 {
     public function index()
     {
-        $companies = Company::latest()->paginate(2);
+        $companies = Company::latest()->get();
         return view('companies.index', compact('companies'));
     }
 
@@ -29,7 +32,10 @@ class CompanyController extends Controller
             $data['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
-        Company::create($data);
+        $company = Company::create($data); // save it into $company
+
+        // Send notification to admin
+        Mail::to('admin@admin.com')->send(new CompanyCreatedMail($company));
 
         return redirect()->route('companies.index')->with('status','Company created.');
     }

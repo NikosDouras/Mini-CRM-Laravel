@@ -15,7 +15,7 @@ class EmployeeFactory extends Factory
         return [
             'first_name' => fake()->firstName(),
             'last_name'  => fake()->lastName(),
-            'company_id' => Company::factory(), // fallback if no company given
+            'company_id' => Company::factory(),
             'email'      => fake()->unique()->safeEmail(),
             'phone'      => fake()->phoneNumber(),
         ];

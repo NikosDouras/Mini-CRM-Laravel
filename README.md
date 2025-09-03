@@ -1,6 +1,5 @@
-Here you go—same steps, just cleaner and easy to skim. You can drop this straight into your README.
 
-# Mini-CRM (Laravel) — Quick Setup
+# Mini-CRM (Laravel) — Setup
 
 > **DB config** (MySQL):
 >

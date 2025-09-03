@@ -1,70 +1,24 @@
+# Company–Employee Mini CRM (Laravel)
 
-# Mini-CRM (Laravel) — Setup
+A simple Laravel application to manage companies and their employees.
 
-> **DB config** (MySQL):
->
-> ```
-> DB_CONNECTION=mysql
-> DB_HOST=127.0.0.1
-> DB_PORT=3306
-> DB_DATABASE=company_employee_crm
-> DB_USERNAME=root
-> DB_PASSWORD=password
-> ```
+* Authentication (Breeze, with registration disabled)
+* Companies & Employees CRUD
+* File upload for company logos (min 100×100)
+* Database migrations & seeders
+* Eloquent relationships
+* Validation via Form Requests
+* Pagination
+* Use of Datatables.net library
+* Email notification
+* Basic testing with phpunit
 
-## 1) Clone & enter project
+Deploy following Deployment-Instructions.md file.
 
-```bash
-git clone https://github.com/NikosDouras/Mini-CRM-Laravel.git
-cd Mini-CRM-Laravel
-# (optional)
-code .
-```
 
-## 2) Environment file
 
-paste .env in project directory or
+Suggested improvements
 
-Edit `.env` and set the DB values shown above.
-
-## 3) PHP dependencies
-
-```bash
-composer install
-```
-
-## 4) App key
-
-```bash
-php artisan key:generate
-```
-
-## 5) Migrate DB
-
-```bash
-php artisan migrate
-```
-
-## 6) Seed data
-
-```bash
-# Admin account
-php artisan db:seed --class=AdminUserSeeder
-
-# Dummy companies & employees
-php artisan db:seed --class=CompanyEmployeeSeeder
-```
-
-## 7) Frontend assets
-
-```bash
-npm install
-npm run build
-```
-
-## 8) Run the app
-
-```bash
-php artisan serve
-```
-
+* Improve pop up on the frontend when tables are empty.
+* Use more complicated front-end theme like AdminLTE.
+* Make the project multi-language

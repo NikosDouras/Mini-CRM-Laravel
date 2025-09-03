@@ -17,21 +17,11 @@ class DatabaseSeeder extends Seeder
     
     public function run(): void
     {
-        // Admin user
-        User::updateOrCreate(
-            ['email' => 'admin@admin.com'],
-            ['name' => 'Admin', 'password' => Hash::make('password')]
-        );
-
-        // Create 15 companies
-        Company::factory(15)->create();
-
-        // For each company, create 3 employees
-        Company::all()->each(function ($company) {
-            Employee::factory(3)->create([
-                'company_id' => $company->id,
-            ]);
-        });
+        $this->call([
+            AdminUserSeeder::class,
+            CompanyEmployeeSeeder::class,
+        ]);
     }
+
 }
 

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\App;
 
 Route::middleware(['auth'])->group(function () {
     // Root → Companies
@@ -21,6 +22,13 @@ Route::middleware(['auth'])->group(function () {
     // Our CRUD
     Route::resource('companies', CompanyController::class);
     Route::resource('employees', EmployeeController::class);
+
+    //Langs
+    Route::get('/locale/{locale}', function (string $locale) {
+        abort_unless(in_array($locale, ['en','el']), 404);
+        session(['locale' => $locale]);
+        return back();
+    })->name('locale.switch');
 });
 
 require __DIR__.'/auth.php';

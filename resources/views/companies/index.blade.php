@@ -1,17 +1,21 @@
 <x-app-layout>
-    <x-slot name="header"><h2 class="font-semibold text-xl">Companies</h2></x-slot>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl">{{ __('common.companies') }}</h2>
+    </x-slot>
 
     <div class="p-6">
-        <a href="{{ route('companies.create') }}" class="underline">New Company</a>
+        <a href="{{ route('companies.create') }}" class="underline">
+            {{ __('common.new') }} {{ __('common.companies') }}
+        </a>
 
         <table id="companies-table" class="display w-full mt-4">
             <thead>
                 <tr>
-                    <th class="p-2 text-left">Name</th>
-                    <th class="p-2 text-left">Email</th>
-                    <th class="p-2 text-left">Website</th>
-                    <th class="p-2 text-left">Logo</th>
-                    <th class="p-2 text-left">Actions</th>
+                    <th class="p-2 text-left">{{ __('common.name') }}</th>
+                    <th class="p-2 text-left">{{ __('common.email') }}</th>
+                    <th class="p-2 text-left">{{ __('common.website') }}</th>
+                    <th class="p-2 text-left">{{ __('common.logo') }}</th>
+                    <th class="p-2 text-left">{{ __('common.actions') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,7 +25,9 @@
                         <td class="p-2">{{ $c->email }}</td>
                         <td class="p-2">
                             @if($c->website)
-                                <a href="{{ $c->website }}" target="_blank" rel="noopener" class="underline">{{ $c->website }}</a>
+                                <a href="{{ $c->website }}" target="_blank" rel="noopener" class="underline">
+                                    {{ $c->website }}
+                                </a>
                             @endif
                         </td>
                         <td class="p-2">
@@ -30,18 +36,23 @@
                             @endif
                         </td>
                         <td class="p-2">
-                            <a href="{{ route('companies.edit', $c) }}" class="underline">Edit</a>
+                            <a href="{{ route('companies.edit', $c) }}" class="underline">
+                                {{ __('common.edit') }}
+                            </a>
                             <form action="{{ route('companies.destroy', $c) }}" method="POST" class="inline">
                                 @csrf @method('DELETE')
-                                <button class="underline text-red-600" onclick="return confirm('Delete?')">Delete</button>
+                                <button class="underline text-red-600" onclick="return confirm('{{ __('common.delete') }}?')">
+                                    {{ __('common.delete') }}
+                                </button>
                             </form>
                         </td>
                     </tr>
                 @empty
-                    <tr><td class="p-2" colspan="5">No companies yet.</td></tr>
+                    <tr>
+                        <td class="p-2" colspan="5">{{ __('common.no_results') }}</td>
+                    </tr>
                 @endforelse
             </tbody>
         </table>
-
     </div>
 </x-app-layout>

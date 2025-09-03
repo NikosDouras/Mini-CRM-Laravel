@@ -1,4 +1,6 @@
 # Company–Employee Mini CRM (Laravel)
+(Deploy following Deployment-Instructions.md file.)
+
 
 A simple Laravel application to manage companies and their employees.
 
@@ -12,8 +14,6 @@ A simple Laravel application to manage companies and their employees.
 * Use of Datatables.net library
 * Email notification
 * Basic testing with phpunit
-
-Deploy following Deployment-Instructions.md file.
 
 
 

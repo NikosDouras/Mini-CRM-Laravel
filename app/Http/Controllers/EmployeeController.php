@@ -12,7 +12,7 @@ class EmployeeController extends Controller
 {
     public function index()
     {
-        $employees = Employee::with('company')->latest()->paginate(3);
+        $employees = \App\Models\Employee::with('company')->latest()->get();
         return view('employees.index', compact('employees'));
     }
 

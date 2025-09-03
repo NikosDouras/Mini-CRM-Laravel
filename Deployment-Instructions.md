@@ -1,41 +1,70 @@
-# Clone the repo
+
+# Mini-CRM (Laravel) — Setup
+
+> **DB config** (MySQL):
+>
+> ```
+> DB_CONNECTION=mysql
+> DB_HOST=127.0.0.1
+> DB_PORT=3306
+> DB_DATABASE=company_employee_crm
+> DB_USERNAME=root
+> DB_PASSWORD=password
+> ```
+
+## 1) Clone & enter project
+
+```bash
 git clone https://github.com/NikosDouras/Mini-CRM-Laravel.git
 cd Mini-CRM-Laravel
-
-# (Optional) Open project in VS Code
+# (optional)
 code .
+```
 
-# paste the provided .env into the project directory
+## 2) Environment file
 
-# Make sure .env contains:
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=company_employee_crm
-DB_USERNAME=root
-DB_PASSWORD=password
+paste .env in project directory or
 
-# Or change the .env to match your DB.
+Edit `.env` and set the DB values shown above.
 
-# Install PHP dependencies
+## 3) PHP dependencies
+
+```bash
 composer install
+```
 
-# Generate application key
+## 4) App key
+
+```bash
 php artisan key:generate
+```
 
-# Run database migrations
+## 5) Migrate DB
+
+```bash
 php artisan migrate
+```
 
-# Create admin account
+## 6) Seed data
+
+```bash
+# Admin account
 php artisan db:seed --class=AdminUserSeeder
 
-# Populate tables with dummy data
+# Dummy companies & employees
 php artisan db:seed --class=CompanyEmployeeSeeder
+```
 
-# Build frontend assets
+## 7) Frontend assets
+
+```bash
 npm install
 npm run build
+```
 
-# Run the application
+## 8) Run the app
+
+```bash
 php artisan serve
+```
 

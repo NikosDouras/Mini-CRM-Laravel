@@ -8,12 +8,12 @@ code .
 # paste the provided .env into the project directory
 
 # Make sure .env contains:
-# DB_CONNECTION=mysql
-# DB_HOST=127.0.0.1
-# DB_PORT=3306
-# DB_DATABASE=company_employee_crm
-# DB_USERNAME=root
-# DB_PASSWORD=password
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=company_employee_crm
+DB_USERNAME=root
+DB_PASSWORD=password
 
 # Or change the .env to match your DB.
 

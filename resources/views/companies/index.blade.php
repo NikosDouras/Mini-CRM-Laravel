@@ -43,7 +43,5 @@
             </tbody>
         </table>
 
-        {{-- IMPORTANT: remove Laravel pagination when using DataTables client-side --}}
-        {{-- <div class="mt-4">{{ $companies->links() }}</div> --}}
     </div>
 </x-app-layout>

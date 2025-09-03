@@ -68,3 +68,10 @@ npm run build
 php artisan serve
 ```
 
+## 9) Run the tests
+
+```bash
+php artisan test --filter=CompanyTest  
+php artisan test --filter=EmployeeTest
+php artisan test --filter=CompanyCascadeDeleteTest
+```

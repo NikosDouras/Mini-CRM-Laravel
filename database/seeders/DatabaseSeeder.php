@@ -23,8 +23,8 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Admin', 'password' => Hash::make('password')]
         );
 
-        // Create 10 companies
-        Company::factory(10)->create();
+        // Create 15 companies
+        Company::factory(15)->create();
 
         // For each company, create 3 employees
         Company::all()->each(function ($company) {

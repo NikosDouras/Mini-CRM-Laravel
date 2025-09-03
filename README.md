@@ -23,9 +23,7 @@ code .
 
 ## 2) Environment file
 
-```bash
-cp .env.example .env
-```
+paste .env in project directory or
 
 Edit `.env` and set the DB values shown above.
 

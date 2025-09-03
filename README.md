@@ -27,7 +27,7 @@ paste .env in project directory or
 
 Edit `.env` and set the DB values shown above.
 
-## 3) PHP deps
+## 3) PHP dependencies
 
 ```bash
 composer install
@@ -68,4 +68,3 @@ npm run build
 php artisan serve
 ```
 
-> Tip: If the DB doesn’t exist yet, create it first in MySQL (Workbench/CLI) with the name `company_employee_crm`.

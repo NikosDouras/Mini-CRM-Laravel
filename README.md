@@ -22,3 +22,4 @@ Suggested improvements
 * Improve pop up on the frontend when tables are empty.
 * Use more complicated front-end theme like AdminLTE.
 * Make the project multi-language
+* Include a Docker build.

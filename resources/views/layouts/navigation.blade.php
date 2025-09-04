@@ -26,6 +26,11 @@
                 </div>
             </div>
 
+            <div class="hidden sm:flex sm:items-center sm:ms-6">
+                <a href="{{ route('lang.switch', 'en') }}" class="text-sm text-gray-500 hover:text-gray-700 px-2">{{ __('English') }}</a>
+                <a href="{{ route('lang.switch', 'el') }}" class="text-sm text-gray-500 hover:text-gray-700 px-2">{{ __('Greek') }}</a>
+            </div>
+
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
@@ -83,6 +88,15 @@
 
             <x-responsive-nav-link :href="route('employees.index')" :active="request()->routeIs('employees.*')">
                 {{ __('Employees') }}
+            </x-responsive-nav-link>
+        </div>
+
+        <div class="pt-2 pb-3 border-t border-gray-200 space-y-1">
+            <x-responsive-nav-link :href="route('lang.switch', 'en')">
+                {{ __('English') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('lang.switch', 'el')">
+                {{ __('Greek') }}
             </x-responsive-nav-link>
         </div>
 

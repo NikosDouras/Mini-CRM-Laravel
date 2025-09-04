@@ -5,6 +5,14 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProfileController;
 
+Route::get('lang/{locale}', function (string $locale) {
+    if (! in_array($locale, ['en', 'el'])) {
+        abort(400);
+    }
+    session(['locale' => $locale]);
+    return redirect()->back();
+})->name('lang.switch');
+
 Route::middleware(['auth'])->group(function () {
     // Root → Companies
     Route::get('/', fn() => redirect()->route('companies.index'));

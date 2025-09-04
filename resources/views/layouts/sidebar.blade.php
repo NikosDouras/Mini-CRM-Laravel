@@ -1,6 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ route('companies.index') }}" class="brand-link">
+
         <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
     </a>
 

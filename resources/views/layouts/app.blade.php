@@ -11,86 +11,92 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+        <!-- AdminLTE -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
         <!-- DataTables CSS -->
         <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+    <body class="hold-transition sidebar-mini">
+        <div class="wrapper">
             @include('layouts.navigation')
+            @include('layouts.sidebar')
 
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                @isset($header)
+                    <section class="content-header">
+                        <div class="container-fluid">
+                            {{ $header }}
+                        </div>
+                    </section>
+                @endisset
+
+                <!-- Flash Messages -->
+                @if (session('status'))
+                    <div class="container-fluid">
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
                     </div>
-                </header>
-            @endisset
+                @endif
 
-            <!-- Flash Messages -->
-            @if (session('status'))
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
-                    <div class="bg-green-50 border border-green-200 text-green-700 px-4 py-2 rounded">
-                        {{ session('status') }}
-                    </div>
-                </div>
-            @endif
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+                <!-- Main content -->
+                <section class="content">
+                    {{ $slot }}
+                </section>
+            </div>
         </div>
 
-        <!-- jQuery + DataTables JS -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
         <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-
         <script>
             $(function () {
                 if ($('#companies-table').length) {
-                $('#companies-table').DataTable({
-                    dom: 'frtip',            // hide length menu (no "l")
-                    pageLength: 10,
-                    order: [[0, 'asc']],     // sort by Name
-                    columnDefs: [
-                    { targets: [3, 4], orderable: false, searchable: false } // Logo, Actions
-                    ],
-                    language: {
-                    search: "{{ __('Search') }}:",
-                    info: "{{ __('Showing _START_ to _END_ of _TOTAL_ entries') }}",
-                    paginate: {
-                        previous: "{{ __('Previous') }}",
-                        next: "{{ __('Next') }}"
-                    }
-                    }
-                });
+                    $('#companies-table').DataTable({
+                        dom: 'frtip',            // hide length menu (no "l")
+                        pageLength: 10,
+                        order: [[0, 'asc']],     // sort by Name
+                        columnDefs: [
+                            { targets: [3, 4], orderable: false, searchable: false } // Logo, Actions
+                        ],
+                        language: {
+                            search: "{{ __('Search') }}:",
+                            info: "{{ __('Showing _START_ to _END_ of _TOTAL_ entries') }}",
+                            paginate: {
+                                previous: "{{ __('Previous') }}",
+                                next: "{{ __('Next') }}"
+                            }
+                        }
+                    });
                 }
 
                 if ($('#employees-table').length) {
-                $('#employees-table').DataTable({
-                    dom: 'frtip',            // hide length menu
-                    pageLength: 10,
-                    order: [[1, 'asc']],     // sort by Last Name
-                    columnDefs: [
-                    { targets: [5], orderable: false, searchable: false }    // Actions
-                    ],
-                    language: {
-                    search: "{{ __('Search') }}:",
-                    info: "{{ __('Showing _START_ to _END_ of _TOTAL_ entries') }}",
-                    paginate: {
-                        previous: "{{ __('Previous') }}",
-                        next: "{{ __('Next') }}"
-                    }
-                    }
-                });
+                    $('#employees-table').DataTable({
+                        dom: 'frtip',            // hide length menu
+                        pageLength: 10,
+                        order: [[1, 'asc']],     // sort by Last Name
+                        columnDefs: [
+                            { targets: [5], orderable: false, searchable: false }    // Actions
+                        ],
+                        language: {
+                            search: "{{ __('Search') }}:",
+                            info: "{{ __('Showing _START_ to _END_ of _TOTAL_ entries') }}",
+                            paginate: {
+                                previous: "{{ __('Previous') }}",
+                                next: "{{ __('Next') }}"
+                            }
+                        }
+                    });
                 }
             });
-            </script>
-
-
+        </script>
     </body>
 </html>

@@ -58,7 +58,15 @@
                     order: [[0, 'asc']],     // sort by Name
                     columnDefs: [
                     { targets: [3, 4], orderable: false, searchable: false } // Logo, Actions
-                    ]
+                    ],
+                    language: {
+                    search: "{{ __('Search') }}:",
+                    info: "{{ __('Showing _START_ to _END_ of _TOTAL_ entries') }}",
+                    paginate: {
+                        previous: "{{ __('Previous') }}",
+                        next: "{{ __('Next') }}"
+                    }
+                    }
                 });
                 }
 
@@ -69,7 +77,15 @@
                     order: [[1, 'asc']],     // sort by Last Name
                     columnDefs: [
                     { targets: [5], orderable: false, searchable: false }    // Actions
-                    ]
+                    ],
+                    language: {
+                    search: "{{ __('Search') }}:",
+                    info: "{{ __('Showing _START_ to _END_ of _TOTAL_ entries') }}",
+                    paginate: {
+                        previous: "{{ __('Previous') }}",
+                        next: "{{ __('Next') }}"
+                    }
+                    }
                 });
                 }
             });

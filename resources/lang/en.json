@@ -59,5 +59,10 @@
     "Last Name": "Last Name",
     "No employees yet.": "No employees yet.",
     "English": "English",
-    "Greek": "Greek"
+    "Greek": "Greek",
+    "Admin": "Admin",
+    "Search": "Search",
+    "Showing _START_ to _END_ of _TOTAL_ entries": "Showing _START_ to _END_ of _TOTAL_ entries",
+    "Previous": "Previous",
+    "Next": "Next"
 }

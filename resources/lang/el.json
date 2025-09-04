@@ -59,5 +59,10 @@
     "Last Name": "Επώνυμο",
     "No employees yet.": "Δεν υπάρχουν υπάλληλοι ακόμη.",
     "English": "Αγγλικά",
-    "Greek": "Ελληνικά"
+    "Greek": "Ελληνικά",
+    "Admin": "Διαχειριστής",
+    "Search": "Αναζήτηση",
+    "Showing _START_ to _END_ of _TOTAL_ entries": "Εμφάνιση _START_ έως _END_ από _TOTAL_ εγγραφές",
+    "Previous": "Προηγούμενο",
+    "Next": "Επόμενο"
 }

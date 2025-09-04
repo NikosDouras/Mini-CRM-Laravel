@@ -31,7 +31,7 @@
                         </td>
                         <td class="p-2">
                             @if($c->logo)
-                                <img src="{{ asset('storage/'.$c->logo) }}" class="h-10" alt="">
+                                <img src="{{ asset('storage/'.$c->logo) }}" style="width:40px;height:40px;object-fit:contain;" alt="">
                             @endif
                         </td>
                         <td class="p-2">

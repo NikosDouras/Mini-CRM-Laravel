@@ -25,7 +25,7 @@ class EmployeeController extends Controller
     public function store(StoreEmployeeRequest $request)
     {
         Employee::create($request->validated());
-        return redirect()->route('employees.index')->with('status','Employee created.');
+        return redirect()->route('employees.index')->with('status', __('employees.flash.created'));
     }
 
     public function edit(Employee $employee)
@@ -37,12 +37,12 @@ class EmployeeController extends Controller
     public function update(UpdateEmployeeRequest $request, Employee $employee)
     {
         $employee->update($request->validated());
-        return redirect()->route('employees.index')->with('status','Employee updated.');
+        return redirect()->route('employees.index')->with('status', __('employees.flash.updated'));
     }
 
     public function destroy(Employee $employee)
     {
         $employee->delete();
-        return back()->with('status','Employee deleted.');
+        return back()->with('status', __('employees.flash.deleted'));
     }
 }

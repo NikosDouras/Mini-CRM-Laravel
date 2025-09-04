@@ -11,4 +11,10 @@ return [
         'website' => 'Website',
         'logo'    => 'Logo (min 100x100)',
     ],
+
+    'flash' => [
+        'created' => 'Company created.',
+        'updated' => 'Company updated.',
+        'deleted' => 'Company deleted.',
+    ],
 ];

@@ -20,4 +20,10 @@ return [
         'company'    => 'Company',
         'phone'      => 'Phone',
     ],
+
+    'flash' => [
+        'created' => 'Employee created.',
+        'updated' => 'Employee updated.',
+        'deleted' => 'Employee deleted.',
+    ],
 ];

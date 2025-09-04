@@ -4,12 +4,6 @@
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ route('companies.index') }}" class="nav-link">{{ __('Companies') }}</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ route('employees.index') }}" class="nav-link">{{ __('Employees') }}</a>
-        </li>
     </ul>
 
     <!-- Right navbar links -->
@@ -32,8 +26,6 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <span class="dropdown-item-text">{{ Auth::user()->name }}</span>
-                <div class="dropdown-divider"></div>
-                <a href="{{ route('profile.edit') }}" class="dropdown-item">{{ __('Profile') }}</a>
                 <div class="dropdown-divider"></div>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf

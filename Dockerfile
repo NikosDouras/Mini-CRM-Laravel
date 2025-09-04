@@ -32,18 +32,13 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
 
 WORKDIR /var/www/html
 
-# Copy dependency definition files
-COPY composer.json composer.lock package.json package-lock.json ./
-
-# Install PHP and Node dependencies
-RUN composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction
-RUN npm install
-
 # Copy the application code
 COPY . .
 
-# Build frontend assets
-RUN npm run build
+# Install PHP and Node dependencies and build assets
+RUN composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction \
+    && npm install \
+    && npm run build
 
 # ---- Production Stage ----
 FROM php:8.2-fpm

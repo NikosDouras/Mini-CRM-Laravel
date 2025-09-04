@@ -37,7 +37,7 @@ class CompanyController extends Controller
         // Send notification to admin
         Mail::to('admin@admin.com')->send(new CompanyCreatedMail($company));
 
-        return redirect()->route('companies.index')->with('status','Company created.');
+        return redirect()->route('companies.index')->with('status','Η εταιρεία δημιουργήθηκε.');
     }
 
     public function edit(Company $company)
@@ -58,7 +58,7 @@ class CompanyController extends Controller
 
         $company->update($data);
 
-        return redirect()->route('companies.index')->with('status','Company updated.');
+        return redirect()->route('companies.index')->with('status','Η εταιρεία ενημερώθηκε.');
     }
 
     public function destroy(Company $company)
@@ -68,6 +68,6 @@ class CompanyController extends Controller
         }
         $company->delete();
 
-        return back()->with('status','Company deleted.');
+        return back()->with('status','Η εταιρεία διαγράφηκε.');
     }
 }
